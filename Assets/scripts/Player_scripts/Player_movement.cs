@@ -16,9 +16,9 @@ public class Player_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveInput = Input.GetAxisRaw("Horizontal"); // gives a number of -1 to 1 for input on A and D or left and right on the keyboard
+        MoveInput = Input.GetAxisRaw("Horizontal2"); // gives a number of -1 to 1 for input on A and D or left and right on the keyboard
 
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+        if (Input.GetButtonDown("Jump") && IsGrounded()) // if grounded is true lets you jump
         {
             Jump(); // use the function Jump
         }
@@ -33,14 +33,14 @@ public class Player_movement : MonoBehaviour
 
     void Jump()
     {
-        Vector2 movement = new Vector2(PlayerBody.velocity.x, JumpForce);
+        Vector2 movement = new Vector2(PlayerBody.velocity.x, JumpForce); // creates upwards momentum for a jump.
 
         PlayerBody.velocity = movement;
     }
 
     public bool IsGrounded ()
     {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers); // check were the feet are and if they touch the ground
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers); // checks if the feet are touching the ground layer.
 
         if (groundCheck != null) // checks if you are touching the ground
         {
