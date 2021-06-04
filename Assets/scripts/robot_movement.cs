@@ -13,21 +13,20 @@ public class robot_movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("switch"))
+        if (Input.GetButtonDown("switch")) // By pressing tab you swapp the controls of the players.
         {
-            this.character_switch = !this.character_switch;
+            this.character_switch = !this.character_switch; // By pressing tab you toggle character switch form true to false and vis versa.
         }
 
-        // uses the unity's input manager to read the inputs
-        // convert this inputs into movement over the x and y directions
+        // Uses the unity's input manager to read the inputs
+        // Convert this inputs into movement over the x and y directions
         if (character_switch == true)
         {
-            movement.x = Input.GetAxisRaw("Horizontal2");
-        } else
-        {
-            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.x = Input.GetAxisRaw("Horizontal2"); // left and right arrow key movement
+        } else {
+            movement.x = Input.GetAxisRaw("Horizontal"); // W and d key movement
         }
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
     }
     void FixedUpdate()
     {
