@@ -123,6 +123,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!61 &743445194 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7228999681492244035, guid: d75185df7791c1b4d8a60a08c424129f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7228999680782358073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &962040510
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +295,7 @@ Transform:
   m_LocalScale: {x: 0.23729281, y: 0.24088193, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1853272177
 BoxCollider2D:
@@ -351,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 5
+  character_switch: 0
   PlayerBody: {fileID: 1853272178}
 --- !u!1001 &3789817624330767894
 PrefabInstance:
@@ -362,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 3789817623740216635, guid: 6efc937a534b438469bdc6ca079fc121,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3789817623740216635, guid: 6efc937a534b438469bdc6ca079fc121,
         type: 3}
@@ -440,13 +447,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7228999681492244037, guid: d75185df7791c1b4d8a60a08c424129f,
         type: 3}
+      propertyPath: robot
+      value: 
+      objectReference: {fileID: 1853272177}
+    - target: {fileID: 7228999681492244037, guid: d75185df7791c1b4d8a60a08c424129f,
+        type: 3}
       propertyPath: JumpForce
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228999681492244037, guid: d75185df7791c1b4d8a60a08c424129f,
+        type: 3}
+      propertyPath: astronaut
+      value: 
+      objectReference: {fileID: 743445194}
+    - target: {fileID: 7228999681492244037, guid: d75185df7791c1b4d8a60a08c424129f,
+        type: 3}
+      propertyPath: character_switch
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7228999681492244039, guid: d75185df7791c1b4d8a60a08c424129f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7228999681492244039, guid: d75185df7791c1b4d8a60a08c424129f,
         type: 3}
