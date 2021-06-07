@@ -129,6 +129,12 @@ BoxCollider2D:
     type: 3}
   m_PrefabInstance: {fileID: 7228999680782358073}
   m_PrefabAsset: {fileID: 0}
+--- !u!61 &842422748 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 4271798480785378558, guid: adf78ccdfa2a95c48835565042a1e1eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 4271798481023292706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &962040510
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1853272175
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -291,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853272174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96, y: -1.76, z: 0}
+  m_LocalPosition: {x: 1.94, y: -1.89, z: 0}
   m_LocalScale: {x: 0.23729281, y: 0.24088193, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -359,6 +365,7 @@ MonoBehaviour:
   MoveSpeed: 5
   character_switch: 0
   PlayerBody: {fileID: 1853272178}
+  Robot_animations: {fileID: 0}
 --- !u!1001 &3789817624330767894
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -428,6 +435,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6efc937a534b438469bdc6ca079fc121, type: 3}
+--- !u!1001 &4271798481023292706
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4271798479911021197, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Robot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.67675
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.7699738
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.5844135
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4271798479911021202, guid: adf78ccdfa2a95c48835565042a1e1eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: adf78ccdfa2a95c48835565042a1e1eb, type: 3}
 --- !u!1001 &7228999680782358073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -449,7 +525,7 @@ PrefabInstance:
         type: 3}
       propertyPath: robot
       value: 
-      objectReference: {fileID: 1853272177}
+      objectReference: {fileID: 842422748}
     - target: {fileID: 7228999681492244037, guid: d75185df7791c1b4d8a60a08c424129f,
         type: 3}
       propertyPath: JumpForce
