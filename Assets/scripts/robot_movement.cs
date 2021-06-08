@@ -8,6 +8,7 @@ public class robot_movement : MonoBehaviour
     public bool character_switch;
 
     public Rigidbody2D PlayerBody;
+    public Animator Robot_animations;
 
     Vector2 movement = Vector2.zero;
     // Update is called once per frame
@@ -23,10 +24,14 @@ public class robot_movement : MonoBehaviour
         if (character_switch == true)
         {
             movement.x = Input.GetAxisRaw("Horizontal2"); // left and right arrow key movement
+            movement.y = Input.GetAxisRaw("Vertical2"); // Up and down arrow key movement
         } else {
             movement.x = Input.GetAxisRaw("Horizontal"); // W and d key movement
+            movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
         }
-        movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
+        Robot_animations.SetFloat("Horizontal", movement.x);
+        Robot_animations.SetFloat("Vertical", movement.y);
+        Robot_animations.SetFloat("Speed", movement.sqrMagnitude);
     }
     void FixedUpdate()
     {
