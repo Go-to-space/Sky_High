@@ -59,10 +59,12 @@ public class Door_Opener : MonoBehaviour
     {
         if (DoorOpen == false)
         {
+            OpenAudio.Play();
             StartCoroutine(MoveRotateCoroutineOne());
         }
         else if (DoorOpen == true)
         {
+            OpenAudio.Play();
             StartCoroutine(MoveRotateCoroutineTwo());
         }
     }

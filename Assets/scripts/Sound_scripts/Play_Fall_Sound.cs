@@ -5,38 +5,33 @@ using UnityEngine;
 public class Play_Sound_When : MonoBehaviour
 {
     private AudioSource fallAudio;
+    public Transform objct;
+    public LayerMask groundLayers;
     private bool LetSoundPlay = false;
-    // Start is called before the first frame update
+
     void Start()
     {
         fallAudio = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool IsGrounded()
     {
+        Collider2D groundCheck = Physics2D.OverlapCircle(objct.position, 0.5f, groundLayers);
 
-    }
-
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.layer != 6)
+        if (groundCheck != null) // Checks if you are touching the ground
         {
-            LetSoundPlay = true;
-            fallAudio.Pause();
+            return true;
         }
 
-        if (collision.gameObject.layer == 6 && LetSoundPlay == true)
+        return false; // If you are not touching the ground give back false
+    }
+
+    public void fallingSound()
+    {
+        LetSoundPlay = IsGrounded();
+        if (LetSoundPlay == true)
         {
             fallAudio.Play();
-            Debug.Log("AUDIO PLAYING");
-            //fallAudio.UnPause();
-
-            if (collision.gameObject.layer != 6)
-            {
-                LetSoundPlay = true;
-                fallAudio.Pause();
-            }
             LetSoundPlay = false;
         }
     }
