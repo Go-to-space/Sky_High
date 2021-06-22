@@ -5,6 +5,7 @@ using UnityEngine;
 public class Door_Opener : MonoBehaviour
 {
     public GameObject PivotPoint;
+    private AudioSource OpenAudio;
 
     public bool DoorOpen;
     public bool RotateMin;
@@ -14,6 +15,8 @@ public class Door_Opener : MonoBehaviour
 
     private void Start()
     {
+        OpenAudio.Stop();
+        OpenAudio = GetComponent<AudioSource>();
         DoorSizeY = gameObject.transform.localScale.y;
     }
     public void Move()
@@ -54,10 +57,12 @@ public class Door_Opener : MonoBehaviour
     {
         if (DoorOpen == false)
         {
+
             StartCoroutine(MoveRotateCoroutineOne());
         }
         else if (DoorOpen == true)
         {
+
             StartCoroutine(MoveRotateCoroutineTwo());
         }
     }
