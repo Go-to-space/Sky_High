@@ -2,10 +2,14 @@
   "dependencies": {
     "com.unity.2d.animation": {
 <<<<<<< HEAD
+<<<<<<< HEAD
       "version": "5.0.5",
 =======
       "version": "5.0.4",
 >>>>>>> 89bdedda0f2e99d05e916c6971524dd4695a1640
+=======
+      "version": "5.0.6",
+>>>>>>> Player1Animatie
       "depth": 0,
       "source": "registry",
       "dependencies": {
