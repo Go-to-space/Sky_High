@@ -15,7 +15,7 @@ public class Door_Opener : MonoBehaviour
 
     private void Start()
     {
-        OpenAudio.Stop();
+
         OpenAudio = GetComponent<AudioSource>();
         DoorSizeY = gameObject.transform.localScale.y;
     }
@@ -23,10 +23,12 @@ public class Door_Opener : MonoBehaviour
     {
         if (DoorOpen == false)
         {
+            OpenAudio.Play();
             StartCoroutine(MoveCoroutineOne());
         }
         else if (DoorOpen == true)
         {
+            OpenAudio.Play();
             i = DoorSizeY * 10;
             StartCoroutine(MoveCoroutineTwo());
         }
@@ -57,12 +59,10 @@ public class Door_Opener : MonoBehaviour
     {
         if (DoorOpen == false)
         {
-
             StartCoroutine(MoveRotateCoroutineOne());
         }
         else if (DoorOpen == true)
         {
-
             StartCoroutine(MoveRotateCoroutineTwo());
         }
     }
@@ -89,7 +89,7 @@ public class Door_Opener : MonoBehaviour
             }
             DoorOpen = true;
         }
-        
+
     }
     public IEnumerator MoveRotateCoroutineTwo()
     {
