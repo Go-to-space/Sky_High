@@ -6,8 +6,10 @@ public class Door_Opener : MonoBehaviour
 {
     public GameObject PivotPoint;
 
-    bool DoorOpen = false;
-    int i = 0;
+    public bool DoorOpen;
+    public bool RotateMin;
+
+    float i = 0;
     private float DoorSizeY;
 
     private void Start()
@@ -22,6 +24,7 @@ public class Door_Opener : MonoBehaviour
         }
         else if (DoorOpen == true)
         {
+            i = DoorSizeY * 10;
             StartCoroutine(MoveCoroutineTwo());
         }
     }
@@ -60,23 +63,53 @@ public class Door_Opener : MonoBehaviour
     }
     public IEnumerator MoveRotateCoroutineOne()
     {
-        while (i <= 90)
+        if (RotateMin == false)
         {
-            PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
-            i++;
-            yield return null;
+            while (i <= 90)
+            {
+                PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
+                i++;
+                yield return null;
+            }
+            DoorOpen = true;
         }
-        DoorOpen = true;
+
+        if (RotateMin == true)
+        {
+            while (i >= -90)
+            {
+                PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
+                i--;
+                yield return null;
+            }
+            DoorOpen = true;
+        }
+        
     }
     public IEnumerator MoveRotateCoroutineTwo()
     {
-        i = 90;
-        while (i >= 0)
+        if (RotateMin == false)
         {
-            PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
-            i--;
-            yield return null;
+            i = 90;
+            while (i >= 0)
+            {
+                PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
+                i--;
+                yield return null;
+            }
+            DoorOpen = false;
         }
-        DoorOpen = false;
+
+        if (RotateMin == true)
+        {
+            i = -90;
+            while (i <= 0)
+            {
+                PivotPoint.GetComponent<Transform>().rotation = Quaternion.Euler(new Vector3(0, 0, i));
+                i++;
+                yield return null;
+            }
+            DoorOpen = false;
+        }
     }
 }
