@@ -9,8 +9,18 @@ public class robot_movement : MonoBehaviour
 
     public Rigidbody2D PlayerBody;
     public Animator Robot_animations;
+    public Animator Robot_reveresed;
+    public GameObject robotRight;
+    public GameObject robotLeft;
 
     Vector2 movement = Vector2.zero;
+
+    void Start()
+    {
+        robotLeft.SetActive(false);
+        robotRight.SetActive(true);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -29,9 +39,25 @@ public class robot_movement : MonoBehaviour
             movement.x = Input.GetAxisRaw("Horizontal"); // W and d key movement
             movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
         }
+
+        if (movement.x < 0)
+        {
+            robotLeft.SetActive(true);
+            robotRight.SetActive(false);
+        }
+        if (movement.x > 0)
+        {
+            robotLeft.SetActive(false);
+            robotRight.SetActive(true);
+        }
+        
         Robot_animations.SetFloat("Horizontal", movement.x);
         Robot_animations.SetFloat("Vertical", movement.y);
         Robot_animations.SetFloat("Speed", movement.sqrMagnitude);
+
+        Robot_reveresed.SetFloat("Horizontal2", movement.x);
+        Robot_reveresed.SetFloat("Vertical2", movement.y);
+        Robot_reveresed.SetFloat("Speed2", movement.sqrMagnitude);
     }
     void FixedUpdate()
     {
