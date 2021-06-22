@@ -5,7 +5,8 @@ using UnityEngine;
 public class robot_movement : MonoBehaviour
 {
     public float MoveSpeed = 5f;
-    public bool character_switch;
+    public bool character_switch = false;
+    public bool flipped;
 
     public Rigidbody2D PlayerBody;
     public Animator Robot_animations;
@@ -44,20 +45,24 @@ public class robot_movement : MonoBehaviour
         {
             robotLeft.SetActive(true);
             robotRight.SetActive(false);
+            flipped = true;
         }
         if (movement.x > 0)
         {
             robotLeft.SetActive(false);
             robotRight.SetActive(true);
+            flipped = false;
         }
         
         Robot_animations.SetFloat("Horizontal", movement.x);
         Robot_animations.SetFloat("Vertical", movement.y);
         Robot_animations.SetFloat("Speed", movement.sqrMagnitude);
+        Robot_animations.SetBool("Flipped", flipped);
 
-        Robot_reveresed.SetFloat("Horizontal2", movement.x);
-        Robot_reveresed.SetFloat("Vertical2", movement.y);
-        Robot_reveresed.SetFloat("Speed2", movement.sqrMagnitude);
+        Robot_reveresed.SetFloat("Horizontal", movement.x);
+        Robot_reveresed.SetFloat("Vertical", movement.y);
+        Robot_reveresed.SetFloat("Speed", movement.sqrMagnitude);
+        Robot_reveresed.SetBool("Flipped", flipped);
     }
     void FixedUpdate()
     {
