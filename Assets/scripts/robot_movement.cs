@@ -41,13 +41,14 @@ public class robot_movement : MonoBehaviour
             movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
         }
 
-        if (movement.x < 0)
+
+        if (movement.x < 0 && flipped == false)
         {
             robotLeft.SetActive(true);
             robotRight.SetActive(false);
             flipped = true;
         }
-        if (movement.x > 0)
+        if (movement.x > 0 && flipped == true)
         {
             robotLeft.SetActive(false);
             robotRight.SetActive(true);

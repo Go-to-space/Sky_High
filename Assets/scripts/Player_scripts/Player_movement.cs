@@ -9,11 +9,13 @@ public class Player_movement : MonoBehaviour
     [SerializeField] private bool character_switch; // Check if movement is swapped
     [SerializeField] private float JumpForce = 2f; // How strong your jump is
     [SerializeField] private float MoveSpeed = 5f; // The movement speed of the player
+    [SerializeField] private bool flipped;
 
-    public Transform feet; // Placement of the feet
     public LayerMask groundLayers;
+    public Animator astro_animations;
     public Collider2D robot;
     public Collider2D astronaut;
+    public BoxCollider2D boxCollider2D;
 
     float MoveInput; // Varibale used to check which input is given
 
@@ -40,6 +42,7 @@ public class Player_movement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded()) // If grounded is true lets you jump
         {
             Jump(); // Use the function Jump
+            astro_animations.SetTrigger("Hopping");
         }
     }
     // Fixed update is used for physic based movement
@@ -48,6 +51,15 @@ public class Player_movement : MonoBehaviour
         Vector2 movement = new Vector2(MoveInput * MoveSpeed, PlayerBody.velocity.y); // Creates a movement 
 
         PlayerBody.velocity = movement; // 
+
+        astro_animations.SetFloat("Horizontal", movement.x);
+        astro_animations.SetFloat("Speed", movement.sqrMagnitude);
+        
+        if ((movement.x < 0 && flipped == false) || (movement.x > 0 && flipped == true))
+        {
+            transform.Rotate(new Vector3(0, 180, 0));
+            flipped = !flipped;
+        }
     }
 
     void Jump()
@@ -59,13 +71,15 @@ public class Player_movement : MonoBehaviour
 
     public bool IsGrounded ()
     {
-        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, 0.5f, groundLayers); // Checks if the feet are touching the ground layer.
+        float extraheighttext = 0.1f;
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2D.bounds.center, boxCollider2D.bounds.size, 0f, Vector2.down, extraheighttext, groundLayers); // Checks if the feet are touching the ground layer.
 
-        if (groundCheck != null) // Checks if you are touching the ground
+        if (raycastHit.collider != null) // Checks if you are touching the ground
         {
+            astro_animations.SetBool("Landed", true);
             return true;
         }
-        
+        astro_animations.SetBool("Landed", false);
         return false; // If you are not touching the ground give back false
     }
 }
