@@ -1,0 +1,2 @@
+[0627/153945.901:ERROR:command_buffer_proxy_impl.cc(124)] ContextResult::kTransientFailure: Failed to send GpuChannelMsg_CreateCommandBuffer.
+[0627/153945.917:ERROR:command_buffer_proxy_impl.cc(105)] ContextResult::kTransientFailure: Shared memory region is not valid
