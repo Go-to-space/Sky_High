@@ -2657,7 +2657,7 @@ PrefabInstance:
     - target: {fileID: 923563527439620745, guid: e7fb719663cff5a45b242d5ebfb2fc6d,
         type: 3}
       propertyPath: NextSceneName
-      value: Level_End
+      value: Level_5
       objectReference: {fileID: 0}
     - target: {fileID: 8435757180723074177, guid: e7fb719663cff5a45b242d5ebfb2fc6d,
         type: 3}
@@ -3859,6 +3859,16 @@ PrefabInstance:
         type: 3}
       propertyPath: MoveSpeed
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658679325016374819, guid: db396ed2ad9090145b95f10b2dad5179,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658679325016374819, guid: db396ed2ad9090145b95f10b2dad5179,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5658679325016374820, guid: db396ed2ad9090145b95f10b2dad5179,
         type: 3}

@@ -4695,6 +4695,16 @@ PrefabInstance:
       propertyPath: MoveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5658679325016374819, guid: db396ed2ad9090145b95f10b2dad5179,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5658679325016374819, guid: db396ed2ad9090145b95f10b2dad5179,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5658679325016374820, guid: db396ed2ad9090145b95f10b2dad5179,
         type: 3}
       propertyPath: m_Name
