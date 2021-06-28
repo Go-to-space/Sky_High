@@ -21,6 +21,7 @@ public class Toggle_character : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // lets you switch the player characters
         if (robot_move.character_switch == true)
         {
             None_selected.SetActive(false);

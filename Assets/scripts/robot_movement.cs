@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class robot_movement : MonoBehaviour
 {
+    // all the needed varibles
     public float MoveSpeed = 5f;
     public bool character_switch = false;
     public bool flipped;
@@ -41,19 +42,20 @@ public class robot_movement : MonoBehaviour
             movement.y = Input.GetAxisRaw("Vertical"); // Up and down arrow key movement
         }
 
-        if (movement.x < 0)
+        // plays first idle animation to force the robot to keep the fixed idle animation.
+        // before switching to the other side.
+        if (movement.x < 0 && flipped == false)
         {
-            robotLeft.SetActive(true);
-            robotRight.SetActive(false);
-            flipped = true;
+            Robot_animations.Play("Idle");
+            StartCoroutine(moveLeft());
         }
-        if (movement.x > 0)
+        if (movement.x > 0 && flipped == true)
         {
-            robotLeft.SetActive(false);
-            robotRight.SetActive(true);
-            flipped = false;
+            Robot_reveresed.Play("Idle 0");
+            StartCoroutine(moveRight());
         }
         
+        // sets varibales that you can use in the animator for animation state
         Robot_animations.SetFloat("Horizontal", movement.x);
         Robot_animations.SetFloat("Vertical", movement.y);
         Robot_animations.SetFloat("Speed", movement.sqrMagnitude);
@@ -68,5 +70,27 @@ public class robot_movement : MonoBehaviour
     {
         // Lets the player move plus it lets the player interact correctly with the platform
         this.transform.position += (Vector3)(movement * MoveSpeed * Time.fixedDeltaTime);
+    }
+
+    IEnumerator moveLeft()
+    {
+        /* this part of the code while exucte later than the animation
+        * this is to fix a bug that would let the robot stay in his prevouis animation state after switching
+        */
+        yield return new WaitForSeconds(0.01f);
+        robotLeft.SetActive(true);
+        robotRight.SetActive(false);
+        flipped = true;
+    }
+
+    IEnumerator moveRight() 
+    {
+        /* this part of the code while exucte later than the animation
+         * this is to fix a bug that would let the robot stay in his prevouis animation state after switching
+         */
+        yield return new WaitForSeconds(0.01f);
+        robotLeft.SetActive(false);
+        robotRight.SetActive(true);
+        flipped = false;
     }
 }
